@@ -1,24 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect} from 'react'
+import Todo from './Todo'
+import SyncLoader from "react-spinners/SyncLoader";
+import { css } from "@emotion/react";
 
-function App() {
+const override = css`
+  display: flex;
+  flex-direction:row;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+  margin: 0 auto;
+  width:100%;
+`;
+
+const App = () => {
+
+  const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+    setLoading(true)
+    setTimeout(() => {
+      setLoading(false)
+    }, 2000)
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {loading ?
+        <SyncLoader color={'#4A90E2'} loading={loading} size={20} css={override} />
+        :
+    <div className="bg-fixed flex min-h-screen  items-center justify-center bg-gray-100 bg-gradient-to-r from-yellow-500 via-yellow-300 to-yellow-200  bg-fixed h-screen">     
+      <Todo/>
+    </div>}
+    </>
+    
   );
 }
 
