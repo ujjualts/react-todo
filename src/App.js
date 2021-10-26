@@ -29,7 +29,7 @@ const App = () => {
       {loading ?
         <SyncLoader color={'#4A90E2'} loading={loading} size={20} css={override} />
         :
-    <div className="bg-fixed flex min-h-screen  items-center justify-center bg-gray-100 bg-gradient-to-r from-yellow-500 via-yellow-300 to-yellow-200  bg-fixed h-screen">     
+    <div className="bg-fixed flex min-h-screen  items-center justify-center bg-gray-100 bg-gradient-to-r from-yellow-500 via-yellow-300 to-yellow-200   h-screen">     
       <Todo/>
     </div>}
     </>
